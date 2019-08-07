@@ -20,7 +20,14 @@ app.use('/inverter/:str', (req, res) => {
 app.use('/cpf/:cpf', (req, res) => {
     let cpf = req.params.cpf;
     //Deixo pra vcs!
-    res.send('Validador de CPF');
+
+    if(cpf.length == 14){
+        console.log("CPF válido");
+    }else{
+        console.log("CPF inválido");
+    }
+    
+    res.send(cpf);
 });
 
 app.listen(3000, () => console.log('Servidor iniciado'));
