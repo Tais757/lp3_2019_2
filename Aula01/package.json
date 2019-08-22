@@ -1,30 +1,22 @@
 {
   "name": "Aula01",
   "version": "1.0.0",
-<<<<<<< HEAD
   "main": "server.js",
-=======
-  "main": "app.js",
->>>>>>> 23d900dbc6f4dd05b39de9c8795fd4729101bfcf
   "scripts": {
-    "start": "nodemon",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "start": "nodemon"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "save": "^2.4.0"
+    "install": "^0.13.0"
   },
-<<<<<<< HEAD
   "devDependencies": {
     "jest": "^24.8.0",
     "superagent": "^5.1.0",
     "supertest": "^4.0.2"
   },
-=======
-  "devDependencies": {},
->>>>>>> 23d900dbc6f4dd05b39de9c8795fd4729101bfcf
   "description": ""
 }
