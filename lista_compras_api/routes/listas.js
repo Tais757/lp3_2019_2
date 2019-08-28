@@ -10,6 +10,12 @@ const router = express.Router();
  * Rota para serviço: /listas
  * Verbo HTTP: GET
  */
-router.get('/listas', ListaController.recuperarTodas);
+router.get('/', ListaController.recuperarTodas);
+
+/**
+ * Rota para o servidor: /listas
+ * Verbo HTTP: POST
+ */
+router.post('/', ListaController.salvar);
 
 module.exports = router;
