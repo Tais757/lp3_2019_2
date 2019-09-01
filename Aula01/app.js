@@ -14,20 +14,32 @@ app.use('/inverter/:str', (req, res) => {
     let str = req.params.str;
     //Inverte a string
     str = str.split('').reverse().join('');
-    res.json(str);
+    res.json({resultado: str});
 });
 
 app.use('/cpf/:cpf', (req, res) => {
     let cpf = req.params.cpf;
     //Deixo pra vcs!
+    let Soma;
+    let Resto;
+    Soma = 0;
+  if (cpf == "00000000000") return res.json ({valido:false}); 
+     
+  for (i=1; i<=9; i++) Soma = Soma + parseInt(cpf.substring(i-1, i)) * (11 - i);
+  Resto = (Soma * 10) % 11;
+   
+    if ((Resto == 10) || (Resto == 11))  Resto = 0;
+    if (Resto != parseInt(cpf.substring(9, 10)) ) return res.json ({valido:false});
+   
+  Soma = 0;
+    for (i = 1; i <= 10; i++) Soma = Soma + parseInt(cpf.substring(i-1, i)) * (12 - i);
+    Resto = (Soma * 10) % 11;
+   
+    if ((Resto == 10) || (Resto == 11))  Resto = 0;
+    if (Resto != parseInt(cpf.substring(10, 11) ) ) return res.json ({valido:false});
+    return res.json ({valido:true});
 
-    if(cpf.length == 14){
-        console.log("CPF válido");
-    }else{
-        console.log("CPF inválido");
-    }
-    
-    res.send(cpf);
+    //res.send(cpf);
 });
 
-app.listen(3000, () => console.log('Servidor iniciado'));
+module.exports = app;
