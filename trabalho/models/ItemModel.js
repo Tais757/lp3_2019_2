@@ -1,12 +1,24 @@
 const ItemModel = (sequelize, DataTypes) =>{
     
     const Item = sequelize.define('Item', {
-        descricao:{
+        titulo:{
             type: DataTypes.STRING, 
-            allowNull: false
+            allowNull: false 
         },
-        unidade:{
+        orientador:{
             type: DataTypes.STRING, 
+            allowNull: false 
+        },
+        estudante1:{
+            type: DataTypes.STRING, 
+            allowNull: false 
+        },
+        area:{
+            type: DataTypes.STRING, 
+            allowNull: false 
+        },
+        dataSubmissao:{
+            type: DataTypes.DATEONLY, 
             allowNull: false 
         }
     }, {});

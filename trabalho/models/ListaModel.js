@@ -1,6 +1,6 @@
-const AreaModel = (sequelize, DataTypes, DateOnly) =>{
-    const Trabalho = sequelize.define('Trabalho', {
-        nome:{
+const ListaModel = (sequelize, DataTypes) =>{
+    const Lista = sequelize.define('Lista', {
+        titulo:{
             type: DataTypes.STRING,  
             allowNull: false 
         },
@@ -25,12 +25,12 @@ const AreaModel = (sequelize, DataTypes, DateOnly) =>{
             allowNull: false 
         },
         dataSubmissao:{
-            type: DataTypes.DateOnly, 
+            type: DataTypes.DATEONLY, 
             allowNull: false 
         }
     }, {});
 
-    return Area;
+    return Lista;
 };
 
-module.exports = AreaModel;
+module.exports = ListaModel;

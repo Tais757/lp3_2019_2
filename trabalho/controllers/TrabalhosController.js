@@ -3,23 +3,23 @@ const { Lista, Item } = require('../databases/db');
 
 const controller = {
     recuperarTodas: async (req, res) => {
-        const trabalhos = await Lista.findAll();
-        return res.json(trabalhos);
+        const listas = await Lista.findAll();
+        return res.json(listas);
     },
 
     salvar: (req, res) =>{
-        const trabalhos = req.body;
+        const listas = req.body;
 
-        if(!trabalhos.nome){
+        if(!listas.nome){
             return res 
                 .status(400) 
                 .json({mensagem: 'Nome não informado'}); 
         }
             
         Lista
-            .create(trabalhos)
+            .create(lista)
             .then(
-                trabalhosSalva => res.status(201).json(trabalhosSalva),
+                listaSalva => res.status(201).json(listaSalva),
                 erro => res.status(400).json(erro)
             )
             .catch(erro =>{

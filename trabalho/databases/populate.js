@@ -1,48 +1,52 @@
 const { Item } = require('./db');
 
-const itens = [{
-    "unidade": "SETOR1",
-    "descricao": "CET"
-},
-{
-    "unidade": "SETOR2",
-    "descricao": "CAE"
-},
-{
-    "unidade": "SETOR3",
-    "descricao": "MDIS"
-},
-{
-    "unidade": "SETOR4",
-    "descricao": "CHCSA"
-},
-{
-    "unidade": "SETOR5",
-    "descricao": "CBC"
-},
-{
-    "unidade": "SETOR6",
-    "descricao": "FIC"
-}
+const itens = [
+    {
+        "titulo": "Custo Efetivo Total",
+        "orientador": "João",
+        "estudante1": "Joana",
+        "area": "CET"
+    },
+    {
+        "titulo": "Engenharia Assistida por Computador",
+        "orientador": "Lúcia",
+        "estudante1": "Laura",
+        "area": "CAE"
+    },
+    {
+        "titulo": "Especificação de Intercâmbio de Metadados",
+        "orientador": "Adilson",
+        "estudante1": "Joaquim",
+        "area": "MDIS"
+    },
+    {
+        "titulo": "Centro de Ciências Humanas, Sociais e Agrárias",
+        "orientador": "Feraz",
+        "estudante1": "Alex",
+        "area": "CHCSA"
+    },
+    {
+        "titulo": "Comunicação Brasil Sat",
+        "orientador": "Pedro",
+        "estudante1": "Alana",
+        "area": "CBS"
+    },
+    {
+        "titulo": "Formação Inicial e Continuada",
+        "orientador": "Juliana",
+        "estudante1": "Roberto",
+        "area": "FIC"
+    }
 ];
-
-/**
- * A função abaixo salvar cada 
- * um dos itens do array acima 
- * no banco de dados.
- */
 
 const  salvarItens = async () => {
     await require('./db');
-    //Versão com o laço for
+   
     for (let i = 0; i < itens.length; i++){
         await Item.create(itens[i]);
     }
 
-    //Versão com o laço forEach
-    //itens.forEach(async(item) => await Lista.create(item));
 };
 
-//Invoca a função que salva os itens
 salvarItens();
 
