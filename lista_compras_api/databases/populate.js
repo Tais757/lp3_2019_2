@@ -1,5 +1,3 @@
-const { Item } = require('./db');
-
 const itens = [{
     "unidade": "UN",
     "descricao": "Abacaxi"
@@ -401,24 +399,4 @@ const itens = [{
     "descricao": "Vinho"
 }
 ];
-
-/**
- * A função abaixo salvar cada 
- * um dos itens do array acima 
- * no banco de dados.
- */
-
-const  salvarItens = async () => {
-    await require('./db');
-    //Versão com o laço for
-    for (let i = 0; i < itens.length; i++){
-        await Item.create(itens[i]);
-    }
-
-    //Versão com o laço forEach
-    //itens.forEach(async(item) => await Lista.create(item));
-};
-
-//Invoca a função que salva os itens
-salvarItens();
 
