@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const esquema = new mongoose.Schema({
+const esquema = new Schema({
     descricao: {
         type: String,
         required: true
