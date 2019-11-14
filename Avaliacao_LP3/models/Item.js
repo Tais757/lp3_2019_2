@@ -15,7 +15,7 @@ const esquema = new Schema({
     },
     confirmacaoSenha: {
         type: String,
-        required: false
+        required: true
     }
 });
 
