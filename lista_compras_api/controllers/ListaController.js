@@ -3,6 +3,11 @@ const Item = require('../models/Item');
 
 const controller = {
 
+    recuperarListas: async (req, res) => {
+        const listas = await Lista.find();
+        return res.json(listas);
+    },
+
     recuperarItens: async (req, res) => {
         const { filtro } = req.body;
         const itens = await Item.find({ 
