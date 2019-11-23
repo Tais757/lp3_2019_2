@@ -19,6 +19,12 @@ router.get('/', ListaController.recuperarListas);
 router.put('/:id', ListaController.atualizar);
 
 /**
+ * Rota para o serviço: /listas/:id
+ * Verbo HTTP: DELETE
+ */
+router.delete('/:id', ListaController.remover);
+
+/**
  * Rota para o servidor: /listas
  * Verbo HTTP: POST
  */

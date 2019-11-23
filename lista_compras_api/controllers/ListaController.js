@@ -45,7 +45,7 @@ const controller = {
                  * a atualizou...
                  */
                 if(listaAtualizada){
-                    res.json(listaAtualizada);
+                    res.json({mensagem: 'Lista atualizada'});
                 } else {
                     res
                         .status(404)
@@ -56,6 +56,23 @@ const controller = {
             res
                 .status(500)
                 .json({ mensagem: 'Erro ao tentar atualizar a lista' });
+    },
+
+    remover: (req, res) => {
+        const { id } = req.params;
+
+        Lista.findByIdAndRemove(id)
+        .exec()
+        .then(() => res.status(204).end(),
+        erro => {
+            console.log(erro);
+        })
+        .catch(erro => {
+            console.log(erro);
+            res.status(500).json({
+                mensagem: 'Erro ao tentar remover a lista'
+            });
+        });
     }
 };
 
